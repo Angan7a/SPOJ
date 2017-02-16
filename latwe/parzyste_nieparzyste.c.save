@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+    int t;
+    scanf("%d", &t);
+    while (t--) {
+        int ile, a, roz;
+        int *parz, *nieparz;
+        int *wsk_parz, *wsk_nieparz;
+        scanf("%d", &ile);
+        if (ile % 2 == 0) {
+            roz = ile / 2;
+        } else {
+            roz = ile / 2 +1;
+        }
+        parz = (int*)malloc((ile / 2) * sizeof(int));
+        nieparz = (int*)malloc(roz * sizeof(int));
+        wsk_parz = parz;
+        wsk_nieparz = nieparz;
+        for (int i = 1; i <= ile; i++) {
+            scanf("%d", &a);
+            if (i
+        }
+        for (int i = 1; i <= ile; i++) {
+            printf("%d\n", wsk[i]);
+        }
+        free(parz);
+        free(nieparz);
+    }
+    return 0;
+}

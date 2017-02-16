@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main(void)
+{
+    char aa[11], bb[6] ;
+    int a[10], b[5];
+    while (scanf("%s %s", aa, bb) != EOF) {
+        for (int i = 0; i < 10; i++) {
+            a[i]= aa[i] - '0';
+        }
+        for (int i = 0; i < 5; i++) {
+            b[i]= bb[i] - '0';
+        }
+        printf("%s\n", a);
+        printf("%s\n", b);
+    }
+    return 0;
+}

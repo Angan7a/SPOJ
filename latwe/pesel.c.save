@@ -1,0 +1,26 @@
+
+
+
+v #include <stdio.h>
+
+int main(void)
+{
+    int t, m, f;
+    double pesel;
+    scanf("%d", &t);
+    while (t--) {
+        scanf("%lf", &pesel);
+            m = pesel / 100;
+            f = pesel - m;
+            printf("%d\n", f );
+            printf("%d\n", m );
+
+        for (double i = 1; i <= 10; i++) {
+            m =  m / 10;
+            //m = m % 10;
+            printf("%d\n", m );
+            
+        }
+    }
+    return 0;
+}

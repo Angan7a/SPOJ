@@ -3,19 +3,28 @@
 
 int main(void)
 {
-    int ile, sum_przod_max, poz_przod, sum_tyl_max, poz_tyl;
-    int *tab, *wsk1, *wsk2, sum = 0;
+    int ile, sum_left, sum_right, sum_l_max, sum_r_max, sum_max = 0;
+    int *tab;
     scanf("%d", &ile);
     tab = (int *)malloc(ile * sizeof(*tab));
-    wsk1 = tab;
     for  (int i = 0; i <  ile; i++) {
-        scanf("%d", wsk1);
-        sum += *wsk1;
-        wsk1++;
+        scanf("%d", tab + i);
     }
-    wsk1 = tab;
-    for  (int i = 0; i <  ile; i++) {
-        printf("%d %d\n", *wsk1++, sum);
+    for (int d = 0; d <  ile; d++) {
+        sum_left = sum_right = sum_l_max = sum_r_max = 0;
+        for (int i = d -1; i >= 0; i--) {
+            sum_left += *(tab + i);
+            if (sum_left > sum_l_max) sum_l_max = sum_left;
+        }
+        for (int i = d; i <  ile; i++) {
+            sum_right += *(tab + i);
+            if (sum_right > sum_r_max) sum_r_max = sum_right;
+        }
+        if (sum_r_max > sum_max) sum_max = sum_r_max;
+        if (sum_l_max > sum_max) sum_max = sum_l_max;
+        if (sum_l_max + sum_r_max > sum_max) sum_max = sum_l_max + sum_r_max;
+
     }
+    printf("%d\n", sum_max);
     return 0;
 }

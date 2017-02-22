@@ -2,7 +2,7 @@
 
 int main(void)
 {
-    int i, t, a, b, zz = 10000;
+    int i, t, a, b;
     int tab[1001];
     scanf("%d", &t);
     while (t--) {

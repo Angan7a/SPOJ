@@ -3,8 +3,9 @@
 
 int main(void)
 {
-    int t, ile, a, sum;
+    int t, ile, a, sum, mniejsza, wieksza, wynik;
     int tab[101];
+    int *liczby, *wsk;
     float sr;
     scanf("%d", &t);
     while (t--) {
@@ -13,13 +14,34 @@ int main(void)
         }
         sum = 0;
         scanf("%d", &ile);
+        liczby = (int *)malloc(ile * sizeof(*liczby));
         for (int i = 0; i < ile; i++) {
             scanf("%d", &a);
+            *(liczby + i) = a;
             tab[a]++;
-            sum += a; 
+            sum += a;
         }
         sr = (float) sum / ile;
-        printf("%f\n", sr);
+        if (sr == 0) {
+            wynik = 0;
+        } else {
+
+            for (mniejsza = sr; tab[mniejsza] == 0; mniejsza--);
+            for (wieksza = sr + 1; tab[wieksza] == 0; wieksza++);
+            wsk = liczby;
+            if (sr - mniejsza == wieksza - sr) {
+                while (*wsk != mniejsza && *wsk != wieksza) {
+                    wsk++;
+                }
+            wynik = *wsk;
+            } else if (sr - mniejsza < wieksza - sr) {
+                wynik = mniejsza;
+            } else {
+                wynik = wieksza;
+            }
+        }
+    printf("%d\n", wynik);
+    free(liczby);
     }
     return 0;
 }

@@ -93,7 +93,7 @@ z_rzymskich(char a)
     if (a == 'C' ) return 100;
     if (a == 'D' ) return 500;
     if (a == 'M' ) return 1000;
-
+return -1;
 }
 
 char
@@ -107,5 +107,5 @@ na_rzymskie(int a)
     if (a == 100 ) return 'C';
     if (a == 500 ) return 'D';
     if (a == 1000 ) return 'M';
-
+return '?';
 }
